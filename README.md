@@ -1,33 +1,53 @@
-# Ex03 Time Table
-## Date:
+# Ex02 Django ORM Web Application
+## Date: 27.02.2024
 
 ## AIM
-To write a html webpage page to display your slot timetable.
+To develop a Django application to store and retrieve data from a Book database using Object Relational Mapping(ORM).
 
-## ALGORITHM
-### STEP 1
-Create a Django-admin Interface.
+## Entity Relationship Diagram
 
-### STEP 2
-Create a static folder and inert HTML code.
+![alt text](<ER Diagram.jpg>)
 
-### STEP 3
-Create a simple table using ```<table>``` tag in html.
+## DESIGN STEPS
 
-### STEP 4
-Add header row using ```<th>``` tag.
+### STEP 1:
+Clone the problem from GitHub
 
-### STEP 5
-Add your timetable using ```<td>``` tag.
+### STEP 2:
+Create a new app in Django project
 
-### STEP 6
-Execute the program using runserver command.
+### STEP 3:
+Enter the code for admin.py and models.py
+
+### STEP 4:
+Execute Django admin and create details for 10 books
 
 ## PROGRAM
+```
+admin.py
 
+from django.contrib import admin
+from .models import BookData,BookDataAdmin
+admin.site.register(BookData,BookDataAdmin)
+
+models.py
+
+from django.db import models
+from django.contrib import admin
+class BookData(models.Model):
+	bookID=models.IntegerField(primary_key=True);
+	bookname=models.CharField(max_length=50);
+	authorname=models.CharField(max_length=50);
+	dopublication=models.DateField();
+	price=models.IntegerField();
+class BookDataAdmin(admin.ModelAdmin):
+	list_display=("bookID","bookname","authorname","dopublication","price");
+```
 
 ## OUTPUT
 
+![alt text](<Screenshot 2024-03-23 114911.png>)
+
 
 ## RESULT
-The program for creating slot timetable using basic HTML tags is executed successfully.
+Thus the program for creating a database using ORM hass been executed successfully
